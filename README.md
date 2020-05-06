@@ -25,6 +25,7 @@ The user should be able to:
   * View multiple the combined weight of multiple exercises on the `stats` page.
 
 ## Deployed Link
+[Deployed Application](https://seventeen-workout-tracker.herokuapp.com/?id=5eb33e6c7bba3a0017f9d520)
 
 ## Screenshots
 ![Fitness Tracker Screenshot](./public/screenshot-fitnessTracker.JPG)
