@@ -80,12 +80,16 @@ app.get("/stats", function(req, res) {
 
 // API route - /api/workouts/range
 app.get("/api/workouts/range", function(req, res) {
-    var prevSun = new Date();
-    prevSun.setHours(0,0,0,0);
-    prevSun.setDate(prevSun.getDate() - (prevSun.getDay()) % 7);  
+    // Function to get the date for Sunday of this week
+    function getSunday(d) {
+        const day = d.getDay();
+        const diff = d.getDate() - day + (day == 0 ? -6 : 0);
+        return new Date(d.setDate(diff));
+      }
+    
     db.Workout.find({
         day: {
-            $gt: prevSun
+            $gt: getSunday(new Date())
         }
     })
     .then(dbWorkout => {
